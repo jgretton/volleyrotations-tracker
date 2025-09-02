@@ -4,7 +4,7 @@ export interface Match {
 	score: SCORE;
 }
 
-interface TEAM {
+export interface TEAM {
 	id: string;
 	teamName: string;
 	players: PLAYER[];
@@ -12,12 +12,12 @@ interface TEAM {
 	substitutes: SUBSTITUTE[];
 }
 
-interface SCORE {
+export interface SCORE {
 	homeTeam: number;
 	awayTeam: number;
 }
 
-interface PLAYER {
+export interface PLAYER {
 	id: string;
 	name: string;
 	number: number;
