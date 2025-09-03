@@ -11,7 +11,8 @@ interface TeamFormProps {
 export default function TeamForm({ teamType }: TeamFormProps) {
 	const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
-	const { setTeamName, match } = useMatchStore();
+	const match = useMatchStore((state) => state.match);
+	const setTeamName = useMatchStore((state) => state.setTeamName);
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();

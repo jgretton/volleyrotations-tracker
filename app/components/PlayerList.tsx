@@ -48,7 +48,8 @@ export default function PlayerList({ teamType }: PlayerListProps) {
 	const [totalPlayers, setTotalPlayers] = useState(6);
 	const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
-	const { match, setTeamPlayers } = useMatchStore();
+	const match = useMatchStore((state) => state.match);
+	const setTeamPlayers = useMatchStore((state) => state.setTeamPlayers);
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
