@@ -11,7 +11,8 @@ export default function Home() {
 				<TeamForm teamType="away" />
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl w-full">
-				<PlayerList />
+				<PlayerList teamType="home" />
+				<PlayerList teamType="away" />
 			</div>
 		</div>
 	);
