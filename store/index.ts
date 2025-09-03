@@ -20,7 +20,7 @@ export const useMatchStore = create<MatchStore>()(
 					},
 				}));
 			},
-			setTeamPlayers(teamType, players) {
+			setTeamPlayers: (teamType, players) => {
 				const team = teamType === "home" ? "homeTeam" : "awayTeam";
 				set((state) => ({
 					...state,
@@ -32,6 +32,10 @@ export const useMatchStore = create<MatchStore>()(
 						},
 					},
 				}));
+			},
+			getTeamPlayers: (teamType) => {
+				const team = teamType === "home" ? "homeTeam" : "awayTeam";
+				return get().match[team].players;
 			},
 		}),
 		{

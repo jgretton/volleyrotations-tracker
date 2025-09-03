@@ -1,3 +1,4 @@
+import HalfCourt from "./components/HalfCourt";
 import PlayerList from "./components/PlayerList";
 import TeamForm from "./components/TeamForm";
 
@@ -14,6 +15,8 @@ export default function Home() {
 				<PlayerList teamType="home" />
 				<PlayerList teamType="away" />
 			</div>
+
+			<HalfCourt />
 		</div>
 	);
 }

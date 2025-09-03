@@ -5,4 +5,6 @@ export interface MatchStore {
 
 	setTeamName: (teamType: "home" | "away", name: string) => void;
 	setTeamPlayers: (teamType: "home" | "away", players: PLAYER[]) => void;
+
+	getTeamPlayers: (teamType: "home" | "away") => PLAYER[];
 }
