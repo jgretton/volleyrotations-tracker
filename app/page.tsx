@@ -16,7 +16,7 @@ export default function Home() {
 				<PlayerList teamType="away" />
 			</div>
 
-			<HalfCourt />
+			<HalfCourt teamType="home" />
 		</div>
 	);
 }
