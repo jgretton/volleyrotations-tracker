@@ -4,7 +4,7 @@ interface HalfCourtProps {
 }
 
 import { useMatchStore } from "@/store";
-import { PLAYER } from "@/types";
+import { PLAYER, SelectedPlayer } from "@/types";
 import { useRef, useState } from "react";
 
 const volleyballPostions = [4, 3, 2, 5, 6, 1];
@@ -13,23 +13,21 @@ const initialSelectedPlayers = volleyballPostions.map((position) => ({
 	player: {},
 }));
 
-interface SelectedPlayer {
-	position: number;
-	player: Partial<PLAYER>;
-}
-
 export default function HalfCourt({ teamType }: HalfCourtProps) {
 	const players = useMatchStore((state) => state.getTeamPlayers(teamType));
+	const setTeamStartingLineup = useMatchStore(
+		(state) => state.setTeamStartingLineup
+	);
 
 	const [selectedPlayers, setSelectedPlayers] = useState<SelectedPlayer[]>(
 		initialSelectedPlayers
 	);
-	const [teamPlayers, setTeamPlayers] = useState<PLAYER[]>(players || []);
+	const [teamPlayers, setTeamPlayers] = useState<PLAYER[]>(
+		() => players || null
+	);
 	const [selectedPosition, setSelectedPosition] = useState<number | null>(null);
 
 	const dialog = useRef<HTMLDialogElement>(null);
-
-	console.log("this is the team players,", selectedPlayers);
 
 	const handlePlayerSelect = (player: PLAYER, position: number) => {
 		const arrayIndex = selectedPlayers.findIndex(
@@ -42,6 +40,18 @@ export default function HalfCourt({ teamType }: HalfCourtProps) {
 		dialog.current?.close();
 
 		setSelectedPosition(null);
+	};
+
+	const handleLineupSubmit = () => {
+		const isFull = selectedPlayers.every((player) => player.player.name); // checks every position has a player assigned.
+
+		if (!isFull) {
+			console.log("Fill the spaces");
+			return;
+		} else {
+			// add function for setting lineup
+			setTeamStartingLineup(teamType, selectedPlayers);
+		}
 	};
 
 	return (
@@ -80,7 +90,7 @@ export default function HalfCourt({ teamType }: HalfCourtProps) {
 				</div>
 			</div>
 
-			<button onClick={() => dialog.current?.showModal()}>Open</button>
+			<button onClick={() => handleLineupSubmit()}>Open</button>
 
 			<dialog
 				ref={dialog}

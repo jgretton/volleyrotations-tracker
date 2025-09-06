@@ -23,7 +23,7 @@ export interface PLAYER {
 	number: number;
 }
 
-type STARTINGLINEUP = Record<COURT_POSITIONS, PLAYER>; // new ts type.
+export type STARTINGLINEUP = Record<COURT_POSITIONS, PLAYER>; // new ts type.
 
 enum COURT_POSITIONS {
 	POSITION_1 = 1,
@@ -39,3 +39,8 @@ interface SUBSTITUTE {
 	playerOff: PLAYER;
 	score: SCORE;
 } // Typescript also auto increments from 1 so i only need to put the first value in.
+
+export interface SelectedPlayer {
+	position: number;
+	player: Partial<PLAYER>;
+}

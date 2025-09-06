@@ -33,6 +33,19 @@ export const useMatchStore = create<MatchStore>()(
 					},
 				}));
 			},
+			setTeamStartingLineup(teamType, players) {
+				const team = teamType === "home" ? "homeTeam" : "awayTeam";
+				set((state) => ({
+					...state,
+					match: {
+						...state.match,
+						[team]: {
+							...state.match[team],
+							startingLineup: players,
+						},
+					},
+				}));
+			},
 			getTeamPlayers: (teamType) => {
 				const team = teamType === "home" ? "homeTeam" : "awayTeam";
 				return get().match[team].players;
