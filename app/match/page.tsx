@@ -8,8 +8,8 @@ export default function MatchPage() {
 			</h1>
 
 			<div className="mt-20 grid grid-cols-2 w-full gap-5">
-				<MockCourt netSide="left" />
 				<MockCourt netSide="right" />
+				<MockCourt netSide="left" />
 			</div>
 		</div>
 	);

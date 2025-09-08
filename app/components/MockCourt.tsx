@@ -77,7 +77,7 @@ export default function MockCourt({ netSide }: { netSide: "left" | "right" }) {
 	return (
 		<div
 			className={`grid grid-cols-2 grid-rows-3 gap-10 ${
-				netSide === "left" ? "border-r-2 pr-2 " : "border-l-2 pl-2"
+				netSide === "right" ? "border-r-2 pr-2 " : "border-l-2 pl-2"
 			}`}
 		>
 			{rotatedPlayers.map((player) => (
