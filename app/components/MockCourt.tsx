@@ -3,9 +3,6 @@
 import { useState } from "react";
 
 export default function MockCourt({ netSide }: { netSide: "left" | "right" }) {
-	// const VolleyballCourtPositions = [5, 4, 6, 3, 1, 2]; // net on the right
-	// const VolleyballCourtPositions = [2, 1, 3, 6, 4, 5]; // net on the left
-
 	const VolleyballCourtPositions =
 		netSide === "left" ? [2, 1, 3, 6, 4, 5] : [5, 4, 6, 3, 1, 2];
 	const VolleyballPlayers = [
@@ -87,7 +84,7 @@ export default function MockCourt({ netSide }: { netSide: "left" | "right" }) {
 				>
 					{player.player.name}
 					<br />
-					{player.position}
+					{player.player.number}
 				</div>
 			))}
 

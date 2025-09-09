@@ -5,6 +5,8 @@ export type TeamType = "home" | "away";
 export interface MatchStore {
 	match: Match;
 
+	resetMatch: () => void;
+
 	setTeamName: (teamType: TeamType, name: string) => void;
 	setTeamPlayers: (teamType: TeamType, players: PLAYER[]) => void;
 	setTeamStartingLineup: (

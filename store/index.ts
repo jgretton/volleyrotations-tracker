@@ -7,6 +7,11 @@ export const useMatchStore = create<MatchStore>()(
 	persist(
 		(set, get) => ({
 			match: initialMatch,
+			resetMatch: () => {
+				set(() => ({
+					match: initialMatch,
+				}));
+			},
 			setTeamName: (teamType, name) => {
 				const team = teamType === "home" ? "homeTeam" : "awayTeam";
 				set((state) => ({
