@@ -4,6 +4,7 @@ interface PlayerListProps {
 	teamType: "away" | "home";
 }
 
+import { Input } from "@/components/ui/input";
 import { useMatchStore } from "@/store";
 import { PLAYER } from "@/types";
 import { useState } from "react";
@@ -22,9 +23,9 @@ function PlayerInput({
 				htmlFor={`playerNumer - ${index}`}
 			>
 				<span className="text-sm font-medium"> #</span>
-				<input
+				<Input
 					type="number"
-					className="rounded-md p-2 border border-gray-200 disabled:opacity-45 disabled:cursor-not-allowed w-full max-w-10 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-center"
+					className=" disabled:opacity-45 disabled:cursor-not-allowed w-full max-w-10 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-center"
 					name={`playerNumber-${index}`}
 					id={`playerNumber-${index}`}
 					defaultValue={defaultValue?.number}
@@ -32,9 +33,9 @@ function PlayerInput({
 			</label>
 			<label className="grid gap-1 w-full" htmlFor={`playerName-${index}`}>
 				<span className="text-sm font-medium">Player Name</span>
-				<input
+				<Input
 					type="text"
-					className="rounded-md p-2 border border-gray-200 disabled:opacity-45 disabled:cursor-not-allowed w-full"
+					className=" disabled:opacity-45 disabled:cursor-not-allowed w-full"
 					name={`playerName-${index}`}
 					id={`playerName-${index}`}
 					defaultValue={defaultValue?.name}
@@ -88,13 +89,13 @@ export default function PlayerList({ teamType }: PlayerListProps) {
 			>
 				+ Add Player
 			</button>
-			<button
+			{/* <button
 				type="submit"
 				className="mt-5 rounded-md bg-violet-600 text-white py-2 px-2 font-medium hover:bg-violet-700 cursor-pointer focus:outline-2 focus:outline-violet-700 focus: outline-offset-2 disabled:bg-violet-400 disabled:cursor-not-allowed grid place-items-center w-full"
 				disabled={isSubmitting}
 			>
 				Submit
-			</button>
+			</button> */}
 		</form>
 	);
 }

@@ -8,6 +8,7 @@ export interface MatchStore {
 	resetMatch: () => void;
 
 	setTeamName: (teamType: TeamType, name: string) => void;
+	setTeamNames: (homeTeamName: string, awayTeamName: string) => void;
 	setTeamPlayers: (teamType: TeamType, players: PLAYER[]) => void;
 	setTeamStartingLineup: (
 		teamType: TeamType,

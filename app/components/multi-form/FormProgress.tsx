@@ -44,7 +44,7 @@ function StepItem({ stepData, currentStep, index }: StepItemProps) {
 	return (
 		<li className="grid grid-cols-[auto_1fr] items-center place-items-center gap-y-6 gap-x-4">
 			<div
-				className={`size-6 rounded-full flex items-center justify-center ${styles[status].circle}`}
+				className={`size-4 rounded-full flex items-center justify-center ${styles[status].circle}`}
 			></div>
 
 			<span
@@ -70,7 +70,7 @@ const steps = [
 
 export default function FormProgress({ step }: FormProgressProps) {
 	return (
-		<div className="max-w-lg w-full p-10 ">
+		<div className="w-fit p-10 ">
 			<ul className="grid gap-y-6 ">
 				{steps.map((stepData, index) => (
 					<StepItem

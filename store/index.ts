@@ -25,6 +25,22 @@ export const useMatchStore = create<MatchStore>()(
 					},
 				}));
 			},
+			setTeamNames: (homeTeamName, awayTeamName) => {
+				set((state) => ({
+					...state,
+					match: {
+						...state.match,
+						homeTeam: {
+							...state.match.homeTeam,
+							teamName: homeTeamName,
+						},
+						awayTeam: {
+							...state.match.awayTeam,
+							teamName: awayTeamName,
+						},
+					},
+				}));
+			},
 			setTeamPlayers: (teamType, players) => {
 				const team = teamType === "home" ? "homeTeam" : "awayTeam";
 				set((state) => ({
